@@ -1,0 +1,55 @@
+#:include mainscreen.kv
+#:include secondscreen.kv
+#:include thirdscreen.kv
+
+<P>:
+    canvas.before:
+        Color:
+            rgb: 1,1, .8,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    Button:
+        text: ">>>"
+        size_hint: 0.8, 0.25
+        pos_hint: {"center_x":0.5, "center_y":0.25}
+        font_name: "kidsrock"
+        color: .59, .74, .20, 1
+        font_size: 0.25 * self.width
+        background_normal: ''
+        background_color: 0,0,0,0
+        canvas.before:
+            Color:
+                rgba: (0.15, .5, 0.2, 1) 
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [4,]
+        on_press:
+            print("pressed, navigating to next screen")
+            app.popup("","close")
+            app.change_screen("thirdscreen")
+    Label:
+        pos_hint: {"x":0.1, "y":0.6}
+        size_hint: 0.8, 0.2
+        text: "NAME!"
+        font_size: 20
+        font_name: "Bubblegum"
+        color: 0.15, .5, 0.2, 1
+        background_color: 0,0,0,0
+        text: "IDK"
+
+
+GridLayout:
+    cols: 1
+    ScreenManager:
+        id: sm
+        MainScreen:
+            name: "screenone"
+            id: screenone
+        SecondScreen:
+            name: "screentwo"
+            id: screentwo
+        ThirdScreen:
+            name: "thirdscreen"
+            id: thirdscreen

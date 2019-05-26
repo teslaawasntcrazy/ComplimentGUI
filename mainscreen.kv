@@ -1,0 +1,38 @@
+<MainScreen>:
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgb: .59, .74, .20
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        TextInput:
+            pos_hint: {'center_x':1, 'top':.1}
+            size_hint: .1,.1
+            multiline: False
+            font_size: 20
+            font_name: "Dimbo Regular"
+            background_normal: ''
+            background_color: 0,0,0,0
+
+        Button:
+            id: here
+            text: "PLAY!"
+            pos_hint: {'center_x':.5, 'center_y':.3}
+            size_hint: .8, .17
+            font_name: "Splatch"
+            color: 0.15, .5, 0.2, 1
+            font_size: 0.14 * self.width
+            background_normal: ''
+            background_color: 0,0,0,0
+            on_press:
+                print("pressed, navigating to next screen")
+                app.change_screen("screentwo")
+                root.manager.transition.direction = "left"
+            canvas.before:
+                Color:
+                    rgb: 1,1, .8,1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [4,]

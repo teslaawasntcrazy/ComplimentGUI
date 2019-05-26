@@ -1,0 +1,53 @@
+<ThirdScreen>:
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgb: .59, .74, .20
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        TextInput:
+            pos_hint: {'center_x':1, 'top':.1}
+            size_hint: .1, .1
+            multiline: False
+            font_size: 20
+            font_name: "Dimbo Regular"
+            background_normal: ''
+            background_color: 0, 0, 0, 0
+
+        Label:
+            pos_hint: {'center_x':.5, 'center_y':.71}
+            size_hint: .8, .17
+            text: "COMPLIMENT!"
+            font_size: 20
+            font_name: "kidsrock"
+            color: 0.15, .5, 0.2, 1
+            background_color: 0,0,0,0
+            canvas.before:
+                Color:
+                    rgb: 1,1, .8,1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [4,]
+
+        Button:
+            pos_hint: {'center_x':.24, 'center_y':.1}
+            size_hint: .28, .07
+            font_name: "kidsrock"
+            color: 0.15, .5, 0.2, 1
+            font_size: 0.35 * self.width
+            text: "<<<"
+            background_normal: ''
+            background_color: 0,0,0,0
+            on_press:
+                print("pressed, navigating to prev screen")
+                app.change_screen("screentwo")
+                root.manager.transition.direction = "right"
+            canvas.before:
+                Color:
+                    rgb: 1,1, .8,1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [4,]

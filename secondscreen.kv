@@ -1,0 +1,74 @@
+<SecondScreen>:
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgb: .59, .74, .20
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        TextInput:
+            id:inside
+            pos_hint: {'center_x':.5, 'center_y':.56}
+            size_hint: .8, .3
+            multiline: False
+            font_size: 20
+            font_name: "Dimbo Regular"
+            background_normal: ''
+            background_color: 1, 1, .8, 1
+
+        Label:
+            pos_hint: {'center_x':.5, 'center_y':.76}
+            size_hint: .8, .07
+            text: "NAME!"
+            font_size: 0.8 * self.height
+            font_name: "kidsrock"
+            color: 0.15, .5, 0.2, 1
+            background_color: 0,0,0,0
+            canvas.before:
+                Color:
+                    rgb: 1,1, .8,1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [4,]
+
+        Button:
+            text: "<<<"
+            size_hint: .28, .07
+            pos_hint: {'center_x':.24, 'center_y':.1}
+            font_name: "kidsrock"
+            color: 0.15, .5, 0.2, 1
+            font_size: 0.35 * self.width
+            background_normal: ''
+            background_color: 0,0,0,0
+            on_press:
+                print("pressed, navigating to prev screen")
+                app.change_screen("screenone")
+                root.manager.transition.direction = "right"
+            canvas.before:
+                Color:
+                    rgb: 1,1, .8,1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [4,]
+        Button:
+            pos_hint: {'center_x':.8, 'center_y':.35}
+            size_hint: .2, .07
+            background_normal: ''
+            background_color: 0,0,0,0
+            color: 0.15, .5, 0.2, 1
+            text: "ENTER"
+            font_name: "kidsrock"
+            font_size: 0.25 * self.width
+            on_press:
+                print("pressed, navigating to next screen")
+                app.popup(inside.text,"open")
+                root.manager.transition.direction = "left"
+            canvas.before:
+                Color:
+                    rgb: 1,1, .8,1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [4,]
