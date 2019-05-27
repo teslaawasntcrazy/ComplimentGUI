@@ -49,11 +49,11 @@ def func():
             scrnmanager = self.root.ids['sm']
             scrnmanager.current = x
         def popup(self,x,y): ##x is text, y is open or close
-            if x != "":
+            if x == "":
                 print(f"this is x:{x}")
-            if y == "open":
-                print(f"this is y:{y}")
-                show_popup(y)
+                if y == "open":
+                    print(f"this is y:{y}")
+                    show_popup(y)
             elif y == "close":
                 print(f"this is y:{y}")
                 show_popup(y)
